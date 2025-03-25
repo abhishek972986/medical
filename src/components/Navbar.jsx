@@ -1,14 +1,14 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-
+import logo from './images/logo.png'
 const Navbar = () => {
   return (
     <div className=" bg-gray-300 w-full h-[70px] flex justify-between items-center rounded-3xl px-6 lg:px-10 shadow-md">
       {/* Logo Section */}
-      <div className="text-2xl font-bold">LOGO</div>
+      <div className=" h-[90%] flex items-center" ><img src={logo} className='h-[65%]' alt="LOGO" /></div>
 
-      {/* Navigation Links */}
+     
       <div className="flex justify-evenly items-center gap-6">
         {[
           { path: "/", label: "Home" },

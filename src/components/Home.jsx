@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 import { FaArrowRightLong } from "react-icons/fa6";
 import Box from '@mui/material/Box';
@@ -10,7 +10,13 @@ import MarkChatUnreadIcon from '@mui/icons-material/MarkChatUnread';
 import Sky from './images/_.jpeg'
 import doc from './images/dr.jpeg'
 import nurse from './images/nurse.jpeg'
+import Chatbot from './Chatbot';
+import { IoClose } from "react-icons/io5";
 const Home = () => {
+
+ const [openchat, setopen]=useState(false)
+
+
   return (
     <div className=' w-full h-screen bg-white p-6 '>
         <Navbar/>
@@ -50,12 +56,14 @@ const Home = () => {
     className="w-full h-full object-cover rounded-2xl"
     alt="Homepage"
   />
-
-  <div className='absolute bottom-10 right-10 '>
+<div className='absolute bottom-30 right-10 z-20 '>
+  {openchat&&<Chatbot />}
+</div>
+  <div className='absolute bottom-10 right-10 ' onClick={()=>{setopen(!openchat)}}>
   <Box sx={{ '& > :not(style)': { m: 1 } }}>
      
       <Fab color="secondary" aria-label="edit">
-       <MarkChatUnreadIcon/>
+      {openchat?<IoClose className='text-2xl font-bold'/>:<MarkChatUnreadIcon />}
       </Fab>
     
     </Box>
